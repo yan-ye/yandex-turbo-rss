@@ -1,6 +1,6 @@
 {
-  "name": "turbo-rss",
-  "version": "2.0.1",
+  "name": "yandex-turbo-rss",
+  "version": "1.0.1",
   "description": "RSS based, feed generator for Yandex turbo",
   "keywords": [
     "yandex",
@@ -10,7 +10,6 @@
   ],
   "main": "lib/index",
   "scripts": {
-    "test": "tape test --tap | tap-min",
     "coverage": "istanbul cover tape test -- -R spec"
   },
   "homepage": "https://github.com/LightAir/turbo-rss",

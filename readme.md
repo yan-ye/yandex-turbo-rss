@@ -1,10 +1,4 @@
-## turbo-rss
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/6525d2aabf20185b68b6/maintainability)](https://codeclimate.com/github/LightAir/turbo-rss/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/6525d2aabf20185b68b6/test_coverage)](https://codeclimate.com/github/LightAir/turbo-rss/test_coverage)
-[![Build Status](https://app.travis-ci.com/LightAir/turbo-rss.svg?branch=master)](https://app.travis-ci.com/LightAir/turbo-rss)
-[![npm](https://img.shields.io/badge/npm%20package-2.0.0-green.svg?longCache=true&style=flat)](https://www.npmjs.com/package/turbo-rss)
-![license](https://img.shields.io/packagist/l/doctrine/orm.svg?longCache=true&style=flat)
+## yandex-turbo-rss
 
 >Генератор RSS разметки для сервиса Турбо-страницы https://yandex.ru/support/webmaster/turbo/connection.html
 
@@ -13,7 +7,7 @@
 #### Создание канала
 
 ```js
-var TR = require('turbo-rss');
+var TR = require('yandex-turbo-rss');
 
 var feed = new TR(feedOptions);
 ```
@@ -24,6 +18,8 @@ var feed = new TR(feedOptions);
  * `link` **url string** Домен сайта, данные которого транслируются.
  * `description` _optional_ **string** Описание канала одним предложением. Не используйте HTML-разметку.
  * `language` _optional_ **string** Язык статьи по стандарту ISO 639-1. По умолчанию ru.
+ * `lastBuildDate` _optional_ **string** optional parameters
+ * `pubDate` _optional_ **string** optional parameters
  
  *Будет добавлено в новых версиях turbo:analytics, turbo:adNetwork, на текущий момент можно добавить в интерфейсе Яндекс Вебмастер*
  
@@ -50,6 +46,7 @@ feed.item(itemOptions);
  * `turboTopic` _optional_ **string** Заголовок страницы, который можно передать в Яндекс.Метрику.
  * `goals` _optional_ **array** массив типа: { _id_ - внутренний идентификатор цели (turbo-goal-id), _name_ - имя цели, _counter_id_ - id счётчика яндекс-метрики }
  * `turboEnabled`_optional_ **bool** Принудительная установка атрибута "turbo". По умолчанию true. Установка в false позволит скрыть отображение турбо-страницы
+ * `category`_optional_ **string** category
 
 ###### menu array
   menu должен содержать массив объектов со следующими опциями:
@@ -80,12 +77,14 @@ var xml = feed.xml();
 ## Пример использования
 
 ```js
-var TR = require('turbo-rss');
+var TR = require('yandex-turbo-rss');
 
 var feed = new TR({
     title: 'title',
     description: 'description',
     link: 'http://example.com',
+    lastBuildDate: 'May 27, 2012',
+    pubDate: 'May 27, 2012',
 });
 
 feed.item({
@@ -93,6 +92,7 @@ feed.item({
     image_url: 'http://example.com/example.png',
     url: 'http://example.com/article4?this&that',
     author: 'LightAir',
+    category: 'categoryTest',
     date: 'May 27, 2012',
     content: '<p>hello</p>',
     goals: [{
@@ -122,18 +122,3 @@ feed.item({
 var xml = feed.xml();
 ```
 
-## Тестирование
-
-Для запуска тестов выполните `npm test`.
-
-```sh
-$ npm test
-```
-
-## Спасибо
-
-@jahglow
-
-@vvmspace
-
-@crackosok
