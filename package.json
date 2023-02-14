@@ -12,7 +12,6 @@
   "scripts": {
     "coverage": "istanbul cover tape test -- -R spec"
   },
-  "homepage": "https://github.com/yan-ye/yandex-turbo-rss",
   "author": {
     "name": "LightAir",
     "email": "public@softroot.ru"
